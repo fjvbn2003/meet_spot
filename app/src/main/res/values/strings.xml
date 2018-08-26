@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">meet_spot</string>
+    <string name="kakao_app_key">33af90ec799df607ca58bf244f1e521d</string>
+    <string name="kakao_scheme">kakao33af90ec799df607ca58bf244f1e521d</string>
+    <string name="kakaolink_host">kakaolink</string>
+</resources>
