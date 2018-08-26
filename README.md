@@ -9,6 +9,6 @@
 5. FindLocationActivity: 친구들 사이의 중간지점을 계산하여 map에 중간지점을 표시해주는 activity
 
 ![loading image](/app/src/main/res/drawable/loading.png)
-![MainAictivity image](/app/src/main/res/drawable/meet_spot_MainActivity.png)
-![PlacePicker image](/app/src/main/res/drawable/meet_spot_PlacePicker.png)
-![FindActivity image](/app/src/main/res/drawable/meet_spot_FindActivity.png)
+![MainAictivity image](/app/src/main/res/drawable/meet_spot_MainActivity.jpg)
+![PlacePicker image](/app/src/main/res/drawable/meet_spot_PlacePicker.jpg)
+![FindActivity image](/app/src/main/res/drawable/meet_spot_FindActivity.jpg)
