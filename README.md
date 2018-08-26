@@ -7,3 +7,5 @@
 3. RecyclerAdapter: recyclerView로 구현된 아답터. 리스트 각각의 원소에 cardView를 생성 및 bind.
 4. Item: 친구와 장소를 나타내는 data model
 5. FindLocationActivity: 친구들 사이의 중간지점을 계산하여 map에 중간지점을 표시해주는 activity
+
+![Alt text](\app\src\main\res\drawable\loading.png)
