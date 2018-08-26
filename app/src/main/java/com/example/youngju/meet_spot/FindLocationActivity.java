@@ -45,8 +45,9 @@ import net.daum.mf.map.api.MapView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+// 카카오 API를 이용하여 카카오 지도에 친구들의 위치를 파란색 마커로 중간지점을 빨간색 마커로 표시하는 엑티비티.
 public class FindLocationActivity extends AppCompatActivity implements MapView.POIItemEventListener, MapReverseGeoCoder.ReverseGeoCodingResultListener {
+
     private GeoDataClient mGeoDataClient;
     private MapView mapView;
     @Override
@@ -62,7 +63,7 @@ public class FindLocationActivity extends AppCompatActivity implements MapView.P
         mapView = new MapView(this);
         ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
         mapViewContainer.addView(mapView);
-
+        // 친구의 수 만큼 반복하면서 지도에 마커를 표시.
         mapView.setPOIItemEventListener(this);
         if(arr != null){
             int i = 0;
@@ -77,7 +78,7 @@ public class FindLocationActivity extends AppCompatActivity implements MapView.P
                 mapView.addPOIItem(marker);
                 i++;
             }
-            //중간점 계산
+            //중간점 계산 다각형의 무게중심.
             double sum_lat = 0;
             double sum_lng = 0;
             //중간지점 계산
@@ -139,7 +140,7 @@ public class FindLocationActivity extends AppCompatActivity implements MapView.P
     public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
 
     }
-
+    // 중간지점 마커를 선택하면 구글 PlacePicker를 실행
     @Override
     public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {
         PlacePicker.IntentBuilder builder;

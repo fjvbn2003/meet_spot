@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab;
     Button fab2;
     RecyclerView recyclerView ;
-    ListViewAdapter adapter;
-    PlaceDetectionClient mPlaceDetectionClient;
     ArrayList<LatLng> arr;
     ArrayList<Item> arrayList;
     RecyclerAdapter recyclerAdapter;
@@ -68,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
         arr = new ArrayList<LatLng>();
         // Adapter 생성
-        adapter = new ListViewAdapter() ;
 
         arrayList = new ArrayList<Item>();
         recyclerAdapter = new RecyclerAdapter(getApplicationContext(), arrayList, R.layout.item_cardview);
@@ -98,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //어플리케이션을 실행하였을 떄 현재 위치를 나타내고 싶다면 아래 내용을 주석 해제.
 
         /*
         mPlaceDetectionClient = Places.getPlaceDetectionClient(this, null);
@@ -142,19 +139,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    // +모양 추가버튼을 눌러서 친구를 추가하는 PlacePicker 엑티비티의 장소정보를 받아오는 부분
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PLACE_PICKER_REQUEST) {
             if (resultCode == RESULT_OK) {
                 Place place = PlacePicker.getPlace(data, this);
                 arr.add(place.getLatLng());
+                //친구의 장소를 담은 arrayList에 Item객체를 만들어서 추가.
                 arrayList.add(new Item("https://maps.googleapis.com/maps/api/staticmap?center="+place.getName().toString()+"&zoom=15&scale=2&size=500x200&maptype=roadmap\n" +
                         "&markers=color:red%7Clabel:C%7C+"+place.getLatLng().latitude+","+place.getLatLng().longitude+"\n" +
                         "&key=AIzaSyB30unzZlu2fRYVrYjfNnq3_TVH9s4g6zw",place.getName().toString(),place.getAddress().toString(),num_of_place));
                 num_of_place++;
                 recyclerAdapter.notifyDataSetChanged();
-                adapter.addItem(ContextCompat.getDrawable(this, R.drawable.ic_face_black_24dp),
-                        "친구"+adapter.getCount(),place.getAddress().toString()+"\n"+ place.getName().toString()) ;
-                adapter.notifyDataSetChanged();
+
             }
         }
     }
@@ -174,21 +171,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e("name not found", e.toString());
         }
     }
-    public Bitmap getBitmapFromURL(String src) {
-        try {
-            java.net.URL url = new java.net.URL(src);
-            HttpURLConnection connection = (HttpURLConnection) url
-                    .openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            return myBitmap;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+
 
 
 }

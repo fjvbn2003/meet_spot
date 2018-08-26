@@ -98,10 +98,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
 
+    // 비동기적으로 image를 다운로드 하기 위해 필요한 asyncTask
 
     public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 
         private static final String LOG_E_TAG = "DownloadImageTask";
+        // 이미지를 나타내고자 하는 부분의 ImageView의 포인터를 담는 맴버변수
         private final WeakReference<ImageView> containerImageView;
 
         public DownloadImageTask(ImageView imageView) {
@@ -124,7 +126,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
             return mBitmap;
         }
-
 
         @Override
         protected void onPostExecute(Bitmap result) {
